@@ -28,7 +28,7 @@ public class ContactFileReader {
                 contact.setMail(contactData[2]);
                 contactList.add(contact);
             });
-        } catch (IOException e) {
+        } catch (IOException | ArrayIndexOutOfBoundsException e) {
             throw new RuntimeException(e);
         }
         return contactList;

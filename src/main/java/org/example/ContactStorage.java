@@ -82,7 +82,9 @@ public class ContactStorage {
     }
 
     private void printFile() {
-        List<String> contacts = contactList.stream().map(Contact::toString).toList();
+        List<String> contacts = contactList.stream()
+                                           .map(c -> c.toString().replace('|', ';'))
+                                           .toList();
         try {
             Files.write(Path.of(fileName), contacts);
             System.out.println(MessageStorage.FILE_SAVED + System.lineSeparator());
